@@ -1,11 +1,14 @@
 export function About() {
   return (
-    <section id="about" className="py-20 bg-black">
+    <section
+      id="about"
+      className="min-h-screen flex items-center justify-center bg-black py-20"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <img
-          src="https://flashfocusstudios.org/flashfocus/1732452463493-photo.webp" 
+              src="https://flashfocusstudios.org/flashfocus/1732452463493-photo.webp"
               alt="About"
               className="w-full h-[500px] object-cover rounded-lg"
             />

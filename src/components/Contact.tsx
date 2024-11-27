@@ -1,10 +1,15 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section
+      id="contact"
+      className="min-h-screen flex items-center justify-center bg-black py-20"
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white text-center mb-12">Contact Me</h2>
+        <h2 className="text-4xl font-bold text-white text-center mb-12">
+          Contact Me
+        </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <form className="space-y-6">
