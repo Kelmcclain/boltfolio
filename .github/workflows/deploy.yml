@@ -16,11 +16,16 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 23  # Ensure compatibility with your project
+        node-version: 16  # Ensure compatibility with your project
         cache: 'npm'
 
     - name: Install dependencies
       run: npm install
+
+    - name: Configure Git Identity
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
 
     - name: Build the project
       run: npm run build
