@@ -1,7 +1,7 @@
 import { Download, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+// import jsPDF from 'jspdf';
 import { useState } from 'react';
 
 export function DownloadButton() {
