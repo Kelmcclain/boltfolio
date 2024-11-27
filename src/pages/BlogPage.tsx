@@ -29,7 +29,7 @@ const posts = [
   }
 ];
 
-export function BlogPage() {
+ function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredPosts = posts.filter(post =>
@@ -97,3 +97,5 @@ export function BlogPage() {
     </section>
   );
 }
+
+export default BlogPage;

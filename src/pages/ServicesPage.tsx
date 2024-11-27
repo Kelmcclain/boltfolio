@@ -1,5 +1,7 @@
 import { Services } from '../components/Services';
 
-export function ServicesPage() {
+ function ServicesPage() {
   return <Services />;
 }
+
+export default ServicesPage;

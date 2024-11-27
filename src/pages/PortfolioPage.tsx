@@ -1,5 +1,7 @@
 import { Projects } from '../components/Projects';
 
-export function PortfolioPage() {
+ function PortfolioPage() {
   return <Projects />;
 }
+
+export default PortfolioPage;

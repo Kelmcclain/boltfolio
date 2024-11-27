@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { Music, Plane, Book, Mountain } from 'lucide-react';
-import { ProfileCard } from './resume-components/ProfileCard';
-import { ProgrammingSkills } from './resume-components/ProgrammingSkills';
-import { ExperienceTimeline } from './resume-components/ExperienceTimeline';
-import { TechnicalSkills } from './resume-components/TechnicalSkills';
-import { ThemeToggle } from './resume-components/ThemeToggle';
-import { DownloadButton } from './resume-components/DownloadButton';
+//update the imports
+import { ProfileCard } from '../resume-components/ProfileCard';
+import { ProgrammingSkills } from '../resume-components/ProgrammingSkills';
+import { ExperienceTimeline } from '../resume-components/ExperienceTimeline';
+import { TechnicalSkills } from '../resume-components/TechnicalSkills';
+import { ThemeToggle } from '../resume-components/ThemeToggle';
+import { DownloadButton } from '../resume-components/DownloadButton';
 
 const jobs = [
   {

@@ -1,14 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { Suspense, lazy } from "react"; // Import React and lazy utilities
 import { Navbar } from "./components/Navbar";
 import { ThemeToggle } from "./components/ThemeToggle";
-import { HomePage } from "./pages/HomePage";
-import { AboutPage } from "./pages/AboutPage";
-import { ServicesPage } from "./pages/ServicesPage";
-import { PortfolioPage } from "./pages/PortfolioPage";
-import { ContactPage } from "./pages/ContactPage";
-import { BlogPage } from "./pages/BlogPage";
-import Resume from "./Resume.tsx";
 import { ThemeProvider } from "./contexts/ThemeContext";
+
+// Lazy-loaded pages
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const Resume = lazy(() => import("./pages/Resume"));
 
 function App() {
   return (
@@ -16,25 +19,19 @@ function App() {
       <div className="bg-black min-h-screen">
         <Navbar />
         <ThemeProvider>
-
-        <ThemeToggle />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route
-            path="/resume"
-            element={
-                <Resume />
-            }
-          />
-          
-        </Routes>
+          <ThemeToggle />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/resume" element={<Resume />} />
+            </Routes>
+          </Suspense>
         </ThemeProvider>
-
       </div>
     </Router>
   );

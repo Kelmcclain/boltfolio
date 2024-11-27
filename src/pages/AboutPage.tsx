@@ -1,5 +1,7 @@
 import { About } from '../components/About';
 
-export function AboutPage() {
+ function AboutPage() {
   return <About />;
 }
+
+export default AboutPage;
