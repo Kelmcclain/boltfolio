@@ -16,7 +16,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 23  # Ensure compatibility with your project
+        node-version: 23 # Ensure compatibility with your project
         cache: 'npm'
 
     - name: Install dependencies
@@ -33,4 +33,5 @@ jobs:
     - name: Deploy to GitHub Pages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run deploy
+      run: |
+        npx gh-pages -d dist --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kelmcclain/portfolio.git
