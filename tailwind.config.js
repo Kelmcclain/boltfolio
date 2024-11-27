@@ -8,6 +8,9 @@ export default {
         center: true,
         padding: '1rem',
       },
+      spacing: {
+        15: '60px',
+      },
     },
   },
   plugins: [],

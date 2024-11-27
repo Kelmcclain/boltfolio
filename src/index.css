@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black font-sans antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-zinc-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-600;
+  }
+}
+
+/* PDF Generation Styles */
+@media print {
+  .download-button,
+  .theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 210mm;
+    height: 297mm;
+  }
+
+  section.max-w-7xl {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 20mm !important;
+    grid-template-columns: 350px 1fr !important;
+    display: grid !important;
+    gap: 2rem !important;
+  }
+
+  .mt-15{
+    margin-top: 15mm !important;
+  }
+
+  /* Force desktop layout */
+  @media (max-width: 1024px) {
+    section.max-w-7xl {
+      grid-template-columns: 350px 1fr !important;
+    }
+  }
+}

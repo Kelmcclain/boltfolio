@@ -27,7 +27,7 @@ export function DownloadButton() {
       // Wait for images to load and animations to complete
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      const mainContent = document.querySelector('section.max-w-7xl');
+      const mainContent = document.querySelector('section.max-w-7xl') as HTMLElement;
       if (!mainContent) throw new Error('Content not found');
 
       // Force desktop layout
@@ -65,8 +65,6 @@ export function DownloadButton() {
 
       // Calculate scaling to fit content to A4
       const imgData = canvas.toDataURL('image/png');
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
       
       pdf.addImage(imgData, 'PNG', 0, 0, a4Width, a4Height, undefined, 'FAST');
       pdf.save('McClain_Kelvin_Resume.pdf');

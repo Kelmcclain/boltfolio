@@ -1,20 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { ThemeToggle } from './components/ThemeToggle';
-import { HomePage } from './pages/HomePage';
-import { AboutPage } from './pages/AboutPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { PortfolioPage } from './pages/PortfolioPage';
-import { ContactPage } from './pages/ContactPage';
-import { BlogPage } from './pages/BlogPage';
-import Resume from './Resume.tsx';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+import { ThemeToggle } from "./components/ThemeToggle";
+import { HomePage } from "./pages/HomePage";
+import { AboutPage } from "./pages/AboutPage";
+import { ServicesPage } from "./pages/ServicesPage";
+import { PortfolioPage } from "./pages/PortfolioPage";
+import { ContactPage } from "./pages/ContactPage";
+import { BlogPage } from "./pages/BlogPage";
+import Resume from "./Resume.tsx";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function App() {
   return (
     <Router>
       <div className="bg-black min-h-screen">
         <Navbar />
+        <ThemeProvider>
+
         <ThemeToggle />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -23,8 +25,16 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/resume" element={<Resume />} />
+          <Route
+            path="/resume"
+            element={
+                <Resume />
+            }
+          />
+          
         </Routes>
+        </ThemeProvider>
+
       </div>
     </Router>
   );

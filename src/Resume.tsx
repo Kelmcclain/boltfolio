@@ -33,8 +33,9 @@ function Resume() {
     <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-white p-4 lg:p-8 transition-colors">
       <ThemeToggle />
       <DownloadButton />
-      <section className="max-w-7xl mx-auto grid lg:grid-cols-[350px,1fr] gap-8">
-        {/* Left Column */}
+      <section className="max-w-7xl mx-auto grid lg:grid-cols-[350px,1fr] gap-8 mt-15"   style={{ marginTop: '60px' }}
+      >
+      {/* Left Column */}
         <motion.div 
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}

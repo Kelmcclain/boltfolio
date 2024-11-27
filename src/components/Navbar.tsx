@@ -9,6 +9,7 @@ const navItems = [
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Resume', href: '/resume' }
 ];
 
 export function Navbar() {
