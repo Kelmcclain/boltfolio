@@ -41,10 +41,14 @@ jobs:
 
     - name: Build the project
       run: npm run build
+      # Ensure the build outputs to the 'dist' folder
+      env:
+        VITE_GITHUB_PAGES: true # if using Vite's environment variable for GitHub Pages deployment
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-          path: ./dist
+        path: ./dist  # Ensure this matches the actual output folder of Vite
 
   deploy:
     environment:
@@ -56,3 +60,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Ensure you're deploying the correct folder (dist in Vite's case)
+          artifact_path: ./dist  # Deploy from the 'dist' folder where Vite build outputs to
