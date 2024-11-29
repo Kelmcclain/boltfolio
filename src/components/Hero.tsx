@@ -123,7 +123,7 @@ export function Hero() {
                   }}
                 >
                   <img
-                    src="/img/mcclain.png"
+                    src="https://flashfocusstudios.org/flashfocus/mcclain.png"
                     alt="Profile"
                     className="absolute -top-20 left-1/2 transform -translate-x-1/2 h-[450px] object-cover rounded-full"
                   />
