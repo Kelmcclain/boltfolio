@@ -26,6 +26,30 @@ const projects = [
     category: 'Web Application',
     tags: ['React', 'Tailwind'],
     link: '#'
+  },
+  {
+    title: 'Portfolio Website',
+    description: 'A modern portfolio website with dark mode support',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    category: 'Web Application',
+    tags: ['React', 'Tailwind'],
+    link: '#'
+  },
+  {
+    title: 'Portfolio Website',
+    description: 'A modern portfolio website with dark mode support',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    category: 'Web Application',
+    tags: ['React', 'Tailwind'],
+    link: '#'
+  },
+  {
+    title: 'Portfolio Website',
+    description: 'A modern portfolio website with dark mode support',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    category: 'Web Application',
+    tags: ['React', 'Tailwind'],
+    link: '#'
   }
 ];
 

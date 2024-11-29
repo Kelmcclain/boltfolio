@@ -1,7 +1,7 @@
 import { Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { TypeAnimation } from "react-type-animation"
+import { TypeAnimation } from "react-type-animation";
 
 export function Hero() {
   return (
@@ -28,20 +28,21 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              And I'm a   <TypeAnimation
-              sequence={[
-                "Full Stack Developer",
-                2000,
-                "UI/UX Designer",
-                2000,
-                "Data Analyst",
-                2000,
-              ]}
-              wrapper="span"
-              speed={50}
-              className="text-primary"
-              repeat={Infinity}
-            />
+              And I'm a{" "}
+              <TypeAnimation
+                sequence={[
+                  "Full Stack Developer",
+                  2000,
+                  "UI/UX Designer",
+                  2000,
+                  "Data Analyst",
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                className="text-blue-400"
+                repeat={Infinity}
+              />
             </motion.h2>
             <motion.p
               className="text-gray-400 mb-6 max-w-2xl text-sm md:text-base"
@@ -58,18 +59,22 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              <Link
-                to="/portfolio"
-                className="bg-white text-black px-4 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors"
-              >
-                View Work
-              </Link>
-              <Link
-                to="/contact"
-                className="border border-white text-white px-4 py-2 rounded-full text-sm hover:bg-white/10 transition-colors"
-              >
-                Contact Me
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/portfolio"
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2.5 rounded-full text-sm transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 active:opacity-90"
+                >
+                  View Work
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/contact"
+                  className="border border-white/50 text-white px-6 py-2.5 rounded-full text-sm transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:shadow-lg hover:shadow-white/25 active:opacity-90"
+                >
+                  Contact Me
+                </Link>
+              </motion.div>
             </motion.div>
             <motion.div
               className="flex gap-3"
@@ -77,22 +82,26 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
-              <a
+              <motion.a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <Github className="h-5 w-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
+              </motion.a>
             </motion.div>
           </motion.div>
           <motion.div
@@ -133,7 +142,6 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
-      src="src/puic/img/mcclain.png" alt="Profile"
       <motion.div
         className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-purple-500/10"
         initial={{ opacity: 0 }}
