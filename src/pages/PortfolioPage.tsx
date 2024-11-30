@@ -1,6 +1,6 @@
 import { Projects } from '../components/Projects';
 
- function PortfolioPage() {
+function PortfolioPage() {
   return <Projects />;
 }
 

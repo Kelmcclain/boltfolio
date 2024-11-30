@@ -1,6 +1,6 @@
 import { About } from '../components/About';
 
- function AboutPage() {
+function AboutPage() {
   return <About />;
 }
 

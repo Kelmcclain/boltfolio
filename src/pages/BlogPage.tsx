@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const posts = [
   {
@@ -29,7 +30,7 @@ const posts = [
   }
 ];
 
- function BlogPage() {
+function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredPosts = posts.filter(post =>
@@ -83,12 +84,12 @@ const posts = [
                 </div>
                 <h2 className="text-xl font-semibold text-white mb-3">{post.title}</h2>
                 <p className="text-gray-400 mb-4">{post.excerpt}</p>
-                <a
-                  href={`/blog/${post.id}`}
+                <Link
+                  to={`/blog/${post.id}`}
                   className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   Read more <ArrowRight className="ml-2 w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </motion.article>
           ))}

@@ -1,6 +1,6 @@
 import { Services } from '../components/Services';
 
- function ServicesPage() {
+function ServicesPage() {
   return <Services />;
 }
 

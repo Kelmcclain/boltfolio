@@ -1,83 +1,75 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Code, Palette, LineChart, Smartphone } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ServiceModal } from './ServiceModal';
 
 const services = [
   {
+    id: 'web-development',
     icon: Code,
     title: 'Web Development',
     description: 'Creating responsive and dynamic web applications that drive business growth.',
-    details: [
-      'Custom web application development using React, Vue, and Node.js',
-      'Responsive design implementation with modern CSS frameworks',
-      'Performance optimization and SEO enhancement',
-      'API integration and development',
-      'Progressive Web Apps (PWA) development'
+    packages: [
+      {
+        id: 'basic',
+        name: 'Basic',
+        price: '$2,999',
+        features: [
+          'Single page website',
+          'Mobile responsive design',
+          'Basic SEO optimization',
+          '3 rounds of revisions',
+          '1 month support'
+        ]
+      },
+      {
+        id: 'professional',
+        name: 'Professional',
+        price: '$5,999',
+        features: [
+          'Multi-page website',
+          'Advanced SEO optimization',
+          'Custom animations',
+          'API integration',
+          '3 months support'
+        ],
+        isPopular: true
+      },
+      {
+        id: 'enterprise',
+        name: 'Enterprise',
+        price: 'Custom',
+        features: [
+          'Full-scale web application',
+          'Custom features & integrations',
+          'Performance optimization',
+          'Priority support',
+          '12 months support'
+        ]
+      }
     ],
-    tools: ['React', 'Node.js', 'TypeScript', 'Tailwind CSS', 'MongoDB']
+    features: [
+      'Custom web application development',
+      'Responsive design implementation',
+      'Performance optimization',
+      'SEO enhancement',
+      'API integration'
+    ]
   },
-  {
-    icon: Palette,
-    title: 'Graphic Design',
-    description: 'Crafting visually stunning designs that capture attention and convey your message.',
-    details: [
-      'Brand identity design and guidelines',
-      'UI/UX design for web and mobile applications',
-      'Social media graphics and marketing materials',
-      'Logo design and corporate identity',
-      'Print design and digital publications'
-    ],
-    tools: ['Figma', 'Adobe XD', 'Illustrator', 'Photoshop', 'InDesign']
-  },
-  {
-    icon: LineChart,
-    title: 'Data Analytics',
-    description: 'Transforming raw data into actionable insights to drive informed decision-making.',
-    details: [
-      'Data visualization and dashboard creation',
-      'Statistical analysis and reporting',
-      'Business intelligence implementation',
-      'Predictive analytics modeling',
-      'Data cleaning and preprocessing'
-    ],
-    tools: ['Python', 'R', 'Tableau', 'Power BI', 'SQL']
-  },
-  {
-    icon: Smartphone,
-    title: 'Android Development',
-    description: 'Building native and cross-platform mobile applications that users love.',
-    details: [
-      'Native Android app development with Kotlin',
-      'Cross-platform development with Flutter',
-      'Mobile UI/UX design and implementation',
-      'App performance optimization',
-      'Play Store deployment and maintenance'
-    ],
-    tools: ['Kotlin', 'Flutter', 'Android Studio', 'Firebase', 'RESTful APIs']
-  }
+  // Add other services here with similar structure
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5
-    }
-  }
-};
-
 export function Services() {
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const handlePackageSelect = (serviceId: string, packageId: string) => {
+    setSelectedPackage(packageId);
+    navigate(`/services/${serviceId}/packages/${packageId}`);
+  };
+
   return (
     <section className="py-20 bg-black min-h-screen">
       <div className="container mx-auto px-4">
@@ -93,61 +85,74 @@ export function Services() {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={service.title}
-                variants={cardVariants}
-                whileHover={{ scale: 1.02 }}
-                className="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
-                    <Icon className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {services.map((service) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
+                  <service.icon className="w-6 h-6 text-blue-400" />
                 </div>
+                <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+              </div>
 
-                <p className="text-gray-400 mb-6">{service.description}</p>
+              <p className="text-gray-400 mb-8">{service.description}</p>
 
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-300 mb-2">What I Offer:</h4>
+              <div className="space-y-4">
+                {service.packages.map((pkg) => (
+                  <motion.div
+                    key={pkg.id}
+                    className={`p-4 rounded-lg cursor-pointer transition-all ${
+                      selectedPackage === pkg.id
+                        ? 'bg-blue-500/20 border-blue-500'
+                        : 'bg-zinc-800/50 hover:bg-zinc-800'
+                    } border-2 border-transparent`}
+                    onClick={() => handlePackageSelect(service.id, pkg.id)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="font-medium text-white">{pkg.name}</h4>
+                      <span className="text-blue-400 font-bold">{pkg.price}</span>
+                    </div>
                     <ul className="space-y-2">
-                      {service.details.map((detail, index) => (
-                        <li key={index} className="text-gray-400 text-sm flex items-start">
-                          <span className="mr-2 text-blue-400">•</span>
-                          {detail}
+                      {pkg.features.slice(0, 3).map((feature) => (
+                        <li key={feature} className="text-sm text-gray-400 flex items-start gap-2">
+                          <span className="text-blue-400">•</span>
+                          {feature}
                         </li>
                       ))}
                     </ul>
-                  </div>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="mt-4 w-full py-2 px-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/services/${service.id}/packages/${pkg.id}/details`);
+                      }}
+                    >
+                      Get Started
+                    </motion.button>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-300 mb-2">Tools & Technologies:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {service.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="px-3 py-1 text-xs bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+        {selectedService && (
+          <ServiceModal
+            isOpen={!!selectedService}
+            onClose={() => setSelectedService(null)}
+            service={selectedService}
+          />
+        )}
       </div>
     </section>
   );
