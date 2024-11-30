@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { Suspense, lazy } from "react"; // Import React and lazy utilities
+import React, { Suspense, lazy } from "react";
 import { Navbar } from "./components/Navbar";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -8,11 +8,12 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage"));
+const ServiceDetailsPage = lazy(() => import("./pages/ServiceDetailsPage"));
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
-const Resume = lazy(() => import("./pages/Resume"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Resume = lazy(() => import("./pages/Resume"));
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:serviceId/packages/:packageId/details" element={<ServiceDetailsPage />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:id" element={<BlogPost />} />
