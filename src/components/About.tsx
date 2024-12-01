@@ -8,7 +8,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <img
-              src="https://flashfocusstudios.org/flashfocus/1732452463493-photo.webp"
+          src="https://flashfocusstudios.org/flashfocus/1732452463493-photo.webp" 
               alt="About"
               className="w-full h-[500px] object-cover rounded-lg"
             />

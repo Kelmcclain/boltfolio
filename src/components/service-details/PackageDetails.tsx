@@ -5,14 +5,17 @@ interface PackageDetailsProps {
   packageDetails: {
     name: string;
     description: string;
-    price: string;
+    price: number;
     timeline: string;
     features: string[];
   };
+  totalPrice: number;
   onStartProject: () => void;
 }
 
-export function PackageDetails({ packageDetails, onStartProject }: PackageDetailsProps) {
+export function PackageDetails({ packageDetails, totalPrice, onStartProject }: PackageDetailsProps) {
+  const formatPrice = (price: number) => `$${price.toLocaleString()}`;
+
   return (
     <div className="bg-zinc-900/50 rounded-xl p-8 mb-8">
       <h1 className="text-3xl font-bold text-white mb-2">
@@ -44,7 +47,14 @@ export function PackageDetails({ packageDetails, onStartProject }: PackageDetail
         <div className="bg-zinc-800/50 rounded-xl p-6">
           <div className="mb-6">
             <h3 className="text-lg font-medium text-gray-300 mb-2">Investment</h3>
-            <div className="text-3xl font-bold text-white">{packageDetails.price}</div>
+            <div className="text-3xl font-bold text-white">
+              {formatPrice(totalPrice)}
+              {totalPrice !== packageDetails.price && (
+                <span className="text-sm text-gray-400 ml-2">
+                  (Base: {formatPrice(packageDetails.price)})
+                </span>
+              )}
+            </div>
           </div>
           
           <div className="mb-8">

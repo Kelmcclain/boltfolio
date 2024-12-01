@@ -67,7 +67,7 @@ export function Services() {
 
   const handlePackageSelect = (serviceId: string, packageId: string) => {
     setSelectedPackage(packageId);
-    navigate(`/services/${serviceId}/packages/${packageId}`);
+    navigate(`/services/${serviceId}/packages/${packageId}/details`);
   };
 
   return (
@@ -85,7 +85,7 @@ export function Services() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {services.map((service) => (
             <motion.div
               key={service.id}
@@ -103,7 +103,7 @@ export function Services() {
 
               <p className="text-gray-400 mb-8">{service.description}</p>
 
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {service.packages.map((pkg) => (
                   <motion.div
                     key={pkg.id}
