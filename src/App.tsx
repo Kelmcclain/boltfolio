@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
 import { Navbar } from "./components/Navbar";
-import { ThemeToggle } from "./components/ThemeToggle";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 // Lazy-loaded pages
@@ -17,11 +16,10 @@ const Resume = lazy(() => import("./pages/Resume"));
 
 function App() {
   return (
-    <Router>
-      <div className="bg-black min-h-screen">
-        <Navbar />
-        <ThemeProvider>
-          <ThemeToggle />
+    <ThemeProvider>
+      <Router>
+        <div className="bg-white dark:bg-black min-h-screen">
+          <Navbar />
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -35,9 +33,9 @@ function App() {
               <Route path="/resume" element={<Resume />} />
             </Routes>
           </Suspense>
-        </ThemeProvider>
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

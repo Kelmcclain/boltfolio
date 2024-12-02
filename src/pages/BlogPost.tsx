@@ -44,7 +44,7 @@ const posts: { [key: number]: Post } = {
   // Add more blog posts as needed
 };
 
- function BlogPost() {
+function BlogPost() {
   const { id } = useParams();
   const [copied, setCopied] = useState(false);
   
@@ -52,7 +52,7 @@ const posts: { [key: number]: Post } = {
   
   if (!post) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Post not found</h1>
           <Link to="/blog" className="text-blue-400 hover:text-blue-300">
@@ -86,7 +86,7 @@ const posts: { [key: number]: Post } = {
 
   return (
     <motion.div 
-      className="min-h-screen bg-black text-white pt-20 pb-12"
+      className="min-h-screen bg-white dark:bg-black text-black dark:text-white pt-20 pb-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -94,7 +94,7 @@ const posts: { [key: number]: Post } = {
       <div className="container mx-auto px-4">
         <Link 
           to="/blog"
-          className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors"
+          className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to blog
@@ -112,7 +112,7 @@ const posts: { [key: number]: Post } = {
           />
           
           <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+            <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
               <span>{post.date}</span>
               <span>•</span>
               <span>{post.readTime}</span>
@@ -134,7 +134,7 @@ const posts: { [key: number]: Post } = {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-2 text-gray-400 hover:text-blue-400 transition-colors"
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
                   onClick={() => handleShare('twitter')}
                 >
                   <Twitter className="w-5 h-5" />
@@ -142,7 +142,7 @@ const posts: { [key: number]: Post } = {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
                   onClick={() => handleShare('facebook')}
                 >
                   <Facebook className="w-5 h-5" />
@@ -150,7 +150,7 @@ const posts: { [key: number]: Post } = {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-2 text-gray-400 hover:text-blue-500 transition-colors"
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
                   onClick={() => handleShare('linkedin')}
                 >
                   <Linkedin className="w-5 h-5" />
@@ -158,7 +158,7 @@ const posts: { [key: number]: Post } = {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-2 text-gray-400 hover:text-white transition-colors relative"
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative"
                   onClick={handleCopyLink}
                 >
                   <Copy className="w-5 h-5" />
@@ -167,7 +167,7 @@ const posts: { [key: number]: Post } = {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs bg-gray-800 px-2 py-1 rounded"
+                      className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded"
                     >
                       Copied!
                     </motion.span>
@@ -176,7 +176,7 @@ const posts: { [key: number]: Post } = {
               </div>
             </div>
             
-            <div className="prose prose-invert max-w-none">
+            <div className="prose dark:prose-invert max-w-none">
               {post.content.split('\n').map((paragraph, index) => (
                 <p key={index} className="mb-4">
                   {paragraph}
@@ -188,7 +188,7 @@ const posts: { [key: number]: Post } = {
               {post.tags.map(tag => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-gray-800 text-sm rounded-full"
+                  className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-sm rounded-full"
                 >
                   {tag}
                 </span>

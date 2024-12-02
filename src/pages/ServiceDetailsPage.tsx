@@ -17,8 +17,8 @@ function ServiceDetailsPage() {
 
   if (!packageDetails) {
     return (
-      <div className="min-h-screen bg-black py-20">
-        <div className="container mx-auto px-4 text-center text-white">
+      <div className="min-h-screen bg-white dark:bg-black py-20">
+        <div className="container mx-auto px-4 text-center text-black dark:text-white">
           <h1 className="text-2xl font-bold mb-4">Package Not Found</h1>
           <button
             onClick={() => navigate('/services')}
@@ -49,7 +49,7 @@ function ServiceDetailsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black py-20">
+    <div className="min-h-screen bg-white dark:bg-black py-20">
       <div className="container mx-auto px-4">
         <ServiceBreadcrumb 
           path={['Services', 'Web Development', packageDetails.name]} 

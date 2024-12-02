@@ -71,7 +71,7 @@ export function Services() {
   };
 
   return (
-    <section className="py-20 bg-black min-h-screen">
+    <section className="py-20 bg-white dark:bg-black min-h-screen">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -79,8 +79,8 @@ export function Services() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">My Services</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">My Services</h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Delivering comprehensive solutions across multiple domains with expertise and innovation
           </p>
         </motion.div>
@@ -92,16 +92,16 @@ export function Services() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-zinc-800/50"
+              className="bg-gray-50 dark:bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-zinc-800/50"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
                   <service.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white">{service.title}</h3>
               </div>
 
-              <p className="text-gray-400 mb-8">{service.description}</p>
+              <p className="text-gray-600 dark:text-gray-400 mb-8">{service.description}</p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {service.packages.map((pkg) => (
@@ -110,19 +110,19 @@ export function Services() {
                     className={`p-4 rounded-lg cursor-pointer transition-all ${
                       selectedPackage === pkg.id
                         ? 'bg-blue-500/20 border-blue-500'
-                        : 'bg-zinc-800/50 hover:bg-zinc-800'
+                        : 'bg-white dark:bg-zinc-800/50 hover:bg-gray-50 dark:hover:bg-zinc-800'
                     } border-2 border-transparent`}
                     onClick={() => handlePackageSelect(service.id, pkg.id)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <h4 className="font-medium text-white">{pkg.name}</h4>
-                      <span className="text-blue-400 font-bold">{pkg.price}</span>
+                      <h4 className="font-medium text-black dark:text-white">{pkg.name}</h4>
+                      <span className="text-blue-400">{pkg.price}</span>
                     </div>
                     <ul className="space-y-2">
                       {pkg.features.slice(0, 3).map((feature) => (
-                        <li key={feature} className="text-sm text-gray-400 flex items-start gap-2">
+                        <li key={feature} className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2">
                           <span className="text-blue-400">•</span>
                           {feature}
                         </li>

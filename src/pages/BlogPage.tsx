@@ -40,11 +40,11 @@ function BlogPage() {
   );
 
   return (
-    <section className="py-20 bg-black min-h-screen">
+    <section className="py-20 bg-white dark:bg-black min-h-screen">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Blog</h1>
-          <p className="text-gray-400">Latest insights, tutorials, and industry updates</p>
+          <h1 className="text-4xl font-bold text-black dark:text-white mb-4">Blog</h1>
+          <p className="text-gray-600 dark:text-gray-400">Latest insights, tutorials, and industry updates</p>
         </div>
 
         <div className="max-w-2xl mx-auto mb-12">
@@ -53,7 +53,7 @@ function BlogPage() {
             <input
               type="text"
               placeholder="Search posts..."
-              className="w-full pl-10 pr-4 py-3 bg-gray-900 text-white rounded-lg border border-gray-800 focus:border-blue-500 focus:outline-none"
+              className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-900 text-black dark:text-white rounded-lg border border-gray-200 dark:border-gray-800 focus:border-blue-500 focus:outline-none"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -67,7 +67,7 @@ function BlogPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-gray-900 rounded-lg overflow-hidden group"
+              className="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden group"
             >
               <div className="relative h-48 overflow-hidden">
                 <img
@@ -82,8 +82,8 @@ function BlogPage() {
                   <span className="text-sm text-blue-400">{post.category}</span>
                   <span className="text-sm text-gray-500">{post.date}</span>
                 </div>
-                <h2 className="text-xl font-semibold text-white mb-3">{post.title}</h2>
-                <p className="text-gray-400 mb-4">{post.excerpt}</p>
+                <h2 className="text-xl font-semibold text-black dark:text-white mb-3">{post.title}</h2>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">{post.excerpt}</p>
                 <Link
                   to={`/blog/${post.id}`}
                   className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"

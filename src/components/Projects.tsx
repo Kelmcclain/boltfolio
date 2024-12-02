@@ -44,9 +44,9 @@ export function Projects() {
   });
 
   return (
-    <section className="py-20 bg-black">
+    <section className="py-20 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-white mb-8">Latest Projects</h2>
+        <h2 className="text-3xl font-bold text-black dark:text-white mb-8">Latest Projects</h2>
         
         <div className="mb-8 space-y-4">
           <div className="relative">
@@ -54,7 +54,7 @@ export function Projects() {
             <input
               type="text"
               placeholder="Search projects..."
-              className="w-full pl-10 pr-4 py-2 bg-gray-900 text-white rounded-lg border border-gray-800 focus:border-blue-500 focus:outline-none"
+              className="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-900 text-black dark:text-white rounded-lg border border-gray-200 dark:border-gray-800 focus:border-blue-500 focus:outline-none"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -68,7 +68,7 @@ export function Projects() {
                 className={`px-4 py-2 rounded-full text-sm transition-colors ${
                   selectedCategory === category
                     ? 'bg-blue-500 text-white'
-                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >
                 {category}
@@ -89,7 +89,7 @@ export function Projects() {
                 transition={{ duration: 0.3 }}
               >
                 <a href={project.link} className="block group">
-                  <div className="relative overflow-hidden rounded-lg bg-gray-800">
+                  <div className="relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -99,13 +99,13 @@ export function Projects() {
                       <span className="inline-block px-3 py-1 text-sm text-blue-400 bg-blue-500/10 rounded-full mb-3">
                         {project.category}
                       </span>
-                      <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                      <p className="text-gray-400 mb-4">{project.description}</p>
+                      <h3 className="text-xl font-semibold text-black dark:text-white mb-2">{project.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-3 py-1 text-sm bg-gray-700 text-gray-300 rounded-full"
+                            className="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
                           >
                             {tag}
                           </span>

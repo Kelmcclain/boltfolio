@@ -55,7 +55,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
           onClick={(e) => e.stopPropagation()}
           className="container mx-auto max-w-4xl p-4"
         >
-          <div className="bg-zinc-900 rounded-xl overflow-hidden">
+          <div className="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden">
             {/* Header */}
             <div className="relative h-48 bg-gradient-to-r from-blue-500 to-purple-500">
               <button
@@ -77,12 +77,12 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
             <div className="p-6 space-y-8">
               {/* Key Features */}
               <section>
-                <h3 className="text-xl font-semibold text-white mb-4">Key Features & Benefits</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Key Features & Benefits</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {service.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-gray-300">{feature}</span>
+                      <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -90,13 +90,13 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
 
               {/* Case Studies */}
               <section>
-                <h3 className="text-xl font-semibold text-white mb-4">Success Stories</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Success Stories</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   {service.caseStudies.map((study, index) => (
-                    <div key={index} className="bg-zinc-800/50 rounded-lg p-4">
+                    <div key={index} className="bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-4">
                       <div className="text-2xl font-bold text-blue-400 mb-2">{study.metric}</div>
-                      <h4 className="font-medium text-white mb-2">{study.title}</h4>
-                      <p className="text-sm text-gray-400">{study.description}</p>
+                      <h4 className="font-medium text-black dark:text-white mb-2">{study.title}</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{study.description}</p>
                     </div>
                   ))}
                 </div>
@@ -104,10 +104,10 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
 
               {/* Testimonials */}
               <section>
-                <h3 className="text-xl font-semibold text-white mb-4">Client Testimonials</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Client Testimonials</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   {service.testimonials.map((testimonial, index) => (
-                    <div key={index} className="bg-zinc-800/50 rounded-lg p-4">
+                    <div key={index} className="bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-4">
                       <div className="flex items-center gap-3 mb-3">
                         <img
                           src={testimonial.image}
@@ -115,13 +115,13 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
                           className="w-12 h-12 rounded-full object-cover"
                         />
                         <div>
-                          <div className="font-medium text-white">{testimonial.name}</div>
-                          <div className="text-sm text-gray-400">
+                          <div className="font-medium text-black dark:text-white">{testimonial.name}</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400">
                             {testimonial.role} at {testimonial.company}
                           </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 italic">{testimonial.content}</p>
+                      <p className="text-gray-600 dark:text-gray-300 italic">{testimonial.content}</p>
                     </div>
                   ))}
                 </div>
@@ -129,12 +129,12 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
 
               {/* Pricing */}
               <section>
-                <h3 className="text-xl font-semibold text-white mb-4">Service Packages</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Service Packages</h3>
                 <div className="grid md:grid-cols-3 gap-6">
                   {service.packages.map((pkg, index) => (
                     <div
                       key={index}
-                      className={`relative bg-zinc-800/50 rounded-lg p-6 ${
+                      className={`relative bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-6 ${
                         pkg.isPopular ? 'ring-2 ring-blue-500' : ''
                       }`}
                     >
@@ -145,11 +145,11 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
                           </span>
                         </div>
                       )}
-                      <h4 className="text-lg font-semibold text-white mb-2">{pkg.name}</h4>
-                      <div className="text-2xl font-bold text-white mb-4">{pkg.price}</div>
+                      <h4 className="text-lg font-semibold text-black dark:text-white mb-2">{pkg.name}</h4>
+                      <div className="text-2xl font-bold text-black dark:text-white mb-4">{pkg.price}</div>
                       <ul className="space-y-2 mb-6">
                         {pkg.features.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
                             <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                             {feature}
                           </li>
@@ -165,16 +165,16 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
 
               {/* Tools */}
               <section>
-                <h3 className="text-xl font-semibold text-white mb-4">Tools & Technologies</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Tools & Technologies</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {service.tools.map((tool, index) => (
                     <div
                       key={index}
-                      className="group bg-zinc-800/50 rounded-lg p-4 hover:bg-zinc-700/50 transition-colors"
+                      className="group bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-zinc-700/50 transition-colors"
                     >
                       <img src={tool.icon} alt={tool.name} className="w-8 h-8 mb-2" />
-                      <h4 className="font-medium text-white mb-1">{tool.name}</h4>
-                      <p className="text-sm text-gray-400">{tool.description}</p>
+                      <h4 className="font-medium text-black dark:text-white mb-1">{tool.name}</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{tool.description}</p>
                     </div>
                   ))}
                 </div>
