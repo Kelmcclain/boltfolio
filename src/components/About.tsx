@@ -15,8 +15,8 @@ export function About() {
           <div className="text-black dark:text-white">
             <h2 className="text-4xl font-bold mb-6">About Me</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
-              I'm McClain Kelvin, a multi-disciplinary professional with expertise in frontend development,
-              graphic design, photography, and data analysis. With a passion for creating innovative solutions,
+              I'm McClain Kelvin, a multi-disciplinary professional with expertise in full stack web development,
+              mobile app development, graphic design, LLM, data analysis, and photography. With a passion for creating innovative solutions,
               I bring a unique blend of creative and analytical skills to every project.
             </p>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
