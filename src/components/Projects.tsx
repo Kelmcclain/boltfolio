@@ -4,12 +4,12 @@ import { Search } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured online shopping platform built with React and Node.js',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1000',
+    title: 'Studio Website',
+    description: 'A full-featured website for a photography and videography studio. Includes a booking system and gallery.',
+    image: 'https://flashfocusstudios.org/img/logo-bg.jpg',
     category: 'Web Development',
     tags: ['React', 'Node.js', 'MongoDB'],
-    link: '#'
+    link: 'https://flashfocusstudios.org/'
   },
   {
     title: 'Task Management App',
