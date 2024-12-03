@@ -88,7 +88,7 @@ export function Projects() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <a href={project.link} className="block group">
+                <a href={project.link} className="block group" target='_blank'>
                   <div className="relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
                     <img
                       src={project.image}
