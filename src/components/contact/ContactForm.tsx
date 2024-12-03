@@ -89,7 +89,7 @@ export function ContactForm() {
           className={`w-full px-4 py-3 bg-white dark:bg-zinc-800 border rounded-lg text-gray-900 dark:text-white focus:outline-none focus:border-blue-500 ${
             errors.subject ? 'border-red-500' : 'border-gray-300 dark:border-zinc-700'
           }`}
-          placeholder="How can we help?"
+          placeholder="How can I help?"
         />
         {errors.subject && (
           <p className="mt-1 text-sm text-red-500">{errors.subject.message}</p>
