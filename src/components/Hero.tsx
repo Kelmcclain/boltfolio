@@ -8,12 +8,14 @@ export function Hero() {
     <section className="min-h-screen pt-14 bg-white dark:bg-black relative overflow-hidden flex items-center p-5">
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+          {/* Left Section */}
           <motion.div
-            className="flex-1"
+            className="flex-1 relative z-20"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
+            {/* Heading */}
             <motion.h1
               className="text-3xl md:text-5xl font-bold mb-3 text-black dark:text-white"
               initial={{ opacity: 0, y: 20 }}
@@ -22,6 +24,8 @@ export function Hero() {
             >
               Hello, I'm McClain
             </motion.h1>
+
+            {/* Subheading */}
             <motion.h2
               className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4"
               initial={{ opacity: 0, y: 20 }}
@@ -35,7 +39,13 @@ export function Hero() {
                   2000,
                   "UI/UX Designer",
                   2000,
-                  "Data Analyst",
+                  "Data Scientist",
+                  2000,
+                  "Photographer & Videographer",
+                  2000,
+                  "Product Manager & Designer",
+                  2000,
+                  "LLM Promt Engineer & AI Specialist",
                   2000,
                 ]}
                 wrapper="span"
@@ -44,6 +54,8 @@ export function Hero() {
                 repeat={Infinity}
               />
             </motion.h2>
+
+            {/* Description */}
             <motion.p
               className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl text-sm md:text-base"
               initial={{ opacity: 0, y: 20 }}
@@ -53,8 +65,10 @@ export function Hero() {
               Check out some of my brand designs and website projects for small
               businesses
             </motion.p>
+
+            {/* Buttons */}
             <motion.div
-              className="flex gap-3 mb-6"
+              className="flex gap-3 mb-6 relative z-30"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
@@ -78,8 +92,10 @@ export function Hero() {
                 </motion.button>
               </Link>
             </motion.div>
+
+            {/* Social Icons */}
             <motion.div
-              className="flex gap-3"
+              className="flex gap-3 relative z-30"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.8 }}
@@ -106,6 +122,8 @@ export function Hero() {
               </motion.a>
             </motion.div>
           </motion.div>
+
+          {/* Right Section */}
           <motion.div
             className="flex-1 relative z-10"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -144,11 +162,14 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Background Gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-purple-500/10 dark:from-blue-500/5 dark:to-purple-500/5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
+        style={{ pointerEvents: "none" }}
       />
     </section>
   );
