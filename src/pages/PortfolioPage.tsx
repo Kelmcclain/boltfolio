@@ -1,7 +1,7 @@
-import { Projects } from '../components/Projects';
+import { Portfolio } from '../components/portfolio/Portfolio';
 
 function PortfolioPage() {
-  return <Projects />;
+  return <Portfolio />;
 }
 
 export default PortfolioPage;

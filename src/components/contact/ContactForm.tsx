@@ -26,7 +26,6 @@ export function ContactForm() {
     setIsSubmitting(true);
     try {
       // Simulate API call
-      console.log('Form data:', data);
       await new Promise(resolve => setTimeout(resolve, 2000));
       setIsSuccess(true);
       reset();
