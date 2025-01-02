@@ -1,14 +1,14 @@
 export const engineeringProjects = [
   {
     id: 'e1',
-    title: 'E-Commerce Platform',
-    description: 'A full-featured online shopping platform built with React and Node.js',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1000',
+    title: 'E-Commerce Platform & Gallery',
+    description: 'A full-featured online shopping & gallery showcase platform built with React and Node.js',
+    image: 'https://flashfocusstudios.org/img/Logohighres.png',
     category: 'Web Development',
     tags: ['React', 'Node.js', 'MongoDB'],
     links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
+      live: 'https://flashfocusstudios.org/',
+      // github: 'https://github.com/example/project'
     }
   },
   {
@@ -19,8 +19,8 @@ export const engineeringProjects = [
     category: 'Mobile App',
     tags: ['React Native', 'Firebase'],
     links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
+      // live: 'https://example.com',
+      // github: 'https://github.com/example/project'
     }
   },
   {
@@ -31,114 +31,42 @@ export const engineeringProjects = [
     category: 'Web Development',
     tags: ['React', 'Tailwind'],
     links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
+      // live: 'https://example.com',
+      // github: 'https://github.com/example/project'
     }
   },
-  {
-    id: 'e4',
-    title: 'AI Image Generator',
-    description: 'An AI-powered image generation tool using stable diffusion',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000',
-    category: 'AI/ML',
-    tags: ['Python', 'PyTorch', 'React'],
-    links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
-    }
-  },
-  {
-    id: 'e5',
-    title: 'Real-time Chat Application',
-    description: 'A modern chat application with real-time messaging',
-    image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&q=80&w=1000',
-    category: 'Web Development',
-    tags: ['Socket.io', 'React', 'Node.js'],
-    links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
-    }
-  },
-  {
-    id: 'e6',
-    title: 'Fitness Tracking App',
-    description: 'Mobile app for tracking workouts and nutrition',
-    image: 'https://images.unsplash.com/photo-1461088945293-0c17689e48ac?auto=format&fit=crop&q=80&w=1000',
-    category: 'Mobile App',
-    tags: ['Flutter', 'Firebase'],
-    links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
-    }
-  },
-  {
-    id: 'e7',
-    title: 'Weather Dashboard',
-    description: 'Real-time weather monitoring with interactive maps',
-    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=1000',
-    category: 'Web Development',
-    tags: ['React', 'D3.js', 'APIs'],
-    links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
-    }
-  },
-  {
-    id: 'e8',
-    title: 'Blockchain Explorer',
-    description: 'Web application for exploring blockchain transactions',
-    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1000',
-    category: 'Web3',
-    tags: ['Ethereum', 'Web3.js', 'React'],
-    links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
-    }
-  },
-  {
-    id: 'e9',
-    title: 'Social Media Dashboard',
-    description: 'Analytics dashboard for social media management',
-    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=1000',
-    category: 'Web Development',
-    tags: ['React', 'GraphQL', 'Charts'],
-    links: {
-      live: 'https://example.com',
-      github: 'https://github.com/example/project'
-    }
-  }
 ];
 
 export const mediaProjects = [
   {
     id: 'm1',
-    title: 'Urban Landscapes',
-    description: 'A collection of cityscape photographs capturing urban life',
-    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1000',
+    title: 'Portraits',
+    description: 'A collection of portrait photography',
+    image: 'https://flashfocusstudios.org/images/flashfocusstudios-15-10-2024-0043.webp',
     category: 'Photography',
-    tags: ['Urban', 'Black & White', 'Street'],
+    tags: ['Portraits', 'Outdoor', 'Nature'],
     links: {
       live: 'https://example.com'
     }
   },
   {
     id: 'm2',
-    title: 'Nature Documentary',
-    description: 'Short documentary exploring local wildlife',
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1000',
-    category: 'Videography',
-    tags: ['Nature', '4K', 'Documentary'],
+    title: 'Portraits',
+    description: 'A collection of portrait photography',
+    image: 'https://flashfocusstudios.org/images/flashfocusstudios-15-10-2024-0044.webp',
+    category: 'Photography',
+    tags: ['Portraits', 'Outdoor', 'Nature'],
     links: {
       live: 'https://example.com'
     }
   },
   {
     id: 'm3',
-    title: 'Portrait Series',
-    description: 'A series of environmental portraits',
-    image: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&q=80&w=1000',
+    title: 'Portraits',
+    description: 'A collection of portrait photography',
+    image: 'https://flashfocusstudios.org/images/flashfocusstudios-15-10-2024-0033.webp',
     category: 'Photography',
-    tags: ['Portrait', 'Studio', 'Environmental'],
+    tags: ['Portraits', 'Outdoor', 'Nature'],
     links: {
       live: 'https://example.com'
     }
