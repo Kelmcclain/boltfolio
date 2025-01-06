@@ -1,7 +1,7 @@
 export const engineeringProjects = [
   {
     id: 'e1',
-    title: 'E-Commerce Platform & Gallery',
+    title: 'FLashFocus | E-Commerce Platform & Gallery',
     description: 'A full-featured online shopping & gallery showcase platform built with React and Node.js',
     image: 'https://flashfocusstudios.org/img/Logohighres.png',
     category: 'Web Development',
@@ -13,13 +13,13 @@ export const engineeringProjects = [
   },
   {
     id: 'e2',
-    title: 'Task Management App',
+    title: 'TaskFlow | Task Management App',
     description: 'A beautiful and intuitive task management application',
     image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=1000',
     category: 'Mobile App',
     tags: ['React Native', 'Firebase'],
     links: {
-      // live: 'https://example.com',
+      live: 'https://kelmcclain.github.io/taskflow/',
       // github: 'https://github.com/example/project'
     }
   },
