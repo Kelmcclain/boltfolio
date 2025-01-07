@@ -2,7 +2,7 @@
 
 A responsive, feature-rich portfolio website built with React, TypeScript, and Tailwind CSS. Features dark mode, smooth animations, and a modern design.
 
-![Portfolio Preview](https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000)
+![Portfolio Preview](https://photos.app.goo.gl/HiEGT9uk28fTWQXR9)
 
 ## Features
 
