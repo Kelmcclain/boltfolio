@@ -1,4 +1,4 @@
-import { Github, Linkedin, ArrowRight } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
