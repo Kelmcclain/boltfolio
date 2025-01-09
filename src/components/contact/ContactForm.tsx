@@ -31,7 +31,7 @@ export function ContactForm() {
     setError('');
 
     try {
-        const response: Response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/portfolio/mcclain/contact`, {
+        const response: Response = await fetch("https://flashfocusstudios.org/api/portfolio/mcclain/contact", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
