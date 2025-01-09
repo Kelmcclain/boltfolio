@@ -31,13 +31,13 @@ export function ContactForm() {
     setError('');
 
     try {
-        const response: Response = await fetch("https://flashfocusstudios.org/api/portfolio/mcclain/contact", {
+        const response: Response = await fetch(`https://flashfocusstudios.org/api/portfolio/mcclain/contact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
             },
-            credentials: 'include',
+            mode: 'cors', // Explicitly set CORS mode
             body: JSON.stringify(data),
         });
 
@@ -51,7 +51,11 @@ export function ContactForm() {
         reset();
         setTimeout(() => setIsSuccess(false), 3000);
     } catch (error: unknown) {
-        setError((error as Error).message || 'An error occurred while sending your message');
+        if (error instanceof Error) {
+            setError(error.message || 'An error occurred while sending your message');
+        } else {
+            setError('An error occurred while sending your message');
+        }
         console.error('Error submitting form:', error);
     } finally {
         setIsSubmitting(false);
