@@ -26,39 +26,37 @@ export function ContactForm() {
     message: string;
   }
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: FormData): Promise<void> => {
     setIsSubmitting(true);
     setError('');
 
     try {
-      const response = await fetch(`https://flashfocusstudios.org/api/portfolio/mcclain/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+        const response: Response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/portfolio/mcclain/contact`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(data),
+        });
 
-      const responseData: ResponseData = await response.json();
+        const responseData: ResponseData = await response.json();
 
-      if (!response.ok) {
-        throw new Error(responseData.message || 'Failed to send message');
-      }
+        if (!response.ok) {
+            throw new Error(responseData.message || 'Failed to send message');
+        }
 
-      setIsSuccess(true);
-      reset();
-      setTimeout(() => setIsSuccess(false), 3000);
+        setIsSuccess(true);
+        reset();
+        setTimeout(() => setIsSuccess(false), 3000);
     } catch (error: unknown) {
-      if (error instanceof Error) {
-        setError(error.message || 'An error occurred while sending your message');
-      } else {
-        setError('An error occurred while sending your message');
-      }
-      console.error('Error submitting form:', error);
+        setError((error as Error).message || 'An error occurred while sending your message');
+        console.error('Error submitting form:', error);
     } finally {
-      setIsSubmitting(false);
+        setIsSubmitting(false);
     }
-  };
+};
 
   return (
     <motion.form
