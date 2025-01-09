@@ -5,7 +5,6 @@ import { ProfileCard } from '../resume-components/ProfileCard';
 import { ProgrammingSkills } from '../resume-components/ProgrammingSkills';
 import { ExperienceTimeline } from '../resume-components/ExperienceTimeline';
 import { TechnicalSkills } from '../resume-components/TechnicalSkills';
-import { ThemeToggle } from '../resume-components/ThemeToggle';
 import { DownloadButton } from '../resume-components/DownloadButton';
 
 const jobs = [
@@ -32,7 +31,6 @@ const jobs = [
 function Resume() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-zinc-900 dark:text-white p-4 lg:p-8 transition-colors">
-      <ThemeToggle />
       <DownloadButton />
       <section className="max-w-7xl mx-auto grid lg:grid-cols-[350px,1fr] gap-8 mt-15"   style={{ marginTop: '60px' }}
       >

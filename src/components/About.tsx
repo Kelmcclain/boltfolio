@@ -91,7 +91,7 @@ export function About() {
             {/* Main image container */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://flashfocusstudios.org/flashfocus/1732452463493-photo.webp"
+                src="https://flashfocusstudios.org/flashfocus/1736450890879-photo.webp"
                 alt="McClain Kelvin"
                 className="w-full h-[600px] object-cover transform scale-100 group-hover:scale-105 transition-all duration-700"
               />

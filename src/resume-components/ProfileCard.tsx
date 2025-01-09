@@ -1,12 +1,11 @@
 import { Github, Twitter, Instagram, Globe, Phone, Mail } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export function ProfileCard() {
   return (
     <div className="text-center mb-8">
       <div className="relative mb-20">
         <img 
-          src="https://flashfocusstudios.org/flashfocus/1732452463493-photo.webp" 
+          src="https://flashfocusstudios.org/flashfocus/1736450890879-photo.webp" 
           alt="Cover" 
           className="w-full h-32 object-cover rounded-lg"
         />
