@@ -1,39 +1,36 @@
 import { X, Check, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+export interface ServiceType {
+  id: string;
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  packages: ServicePackageType[];
+}
+
+export interface ServicePackageType {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  timeline: string;
+  features: string[];
+  addons: ServiceAddonType[];
+  isPopular?: boolean;
+}
+
+export interface ServiceAddonType {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+}
+
 interface ServiceModalProps {
   isOpen: boolean;
   onClose: () => void;
-  service: {
-    icon: any;
-    title: string;
-    description: string;
-    features: string[];
-    benefits: string[];
-    caseStudies: Array<{
-      title: string;
-      metric: string;
-      description: string;
-    }>;
-    testimonials: Array<{
-      name: string;
-      role: string;
-      company: string;
-      content: string;
-      image: string;
-    }>;
-    packages: Array<{
-      name: string;
-      price: string;
-      features: string[];
-      isPopular?: boolean;
-    }>;
-    tools: Array<{
-      name: string;
-      description: string;
-      icon: string;
-    }>;
-  };
+  service: ServiceType;
 }
 
 export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
@@ -53,7 +50,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
           onClick={(e) => e.stopPropagation()}
-          className="container mx-auto max-w-4xl p-4"
+          className="container mx-auto max-w-4xl p-4 my-8"
         >
           <div className="bg-white dark:bg-zinc-900 rounded-xl overflow-hidden">
             {/* Header */}
@@ -75,65 +72,18 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
             </div>
 
             <div className="p-6 space-y-8">
-              {/* Key Features */}
+              {/* Description */}
               <section>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Key Features & Benefits</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {service.features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-gray-600 dark:text-gray-300">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-gray-600 dark:text-gray-300 text-lg">{service.description}</p>
               </section>
 
-              {/* Case Studies */}
+              {/* Packages */}
               <section>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Success Stories</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {service.caseStudies.map((study, index) => (
-                    <div key={index} className="bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-4">
-                      <div className="text-2xl font-bold text-blue-400 mb-2">{study.metric}</div>
-                      <h4 className="font-medium text-black dark:text-white mb-2">{study.title}</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{study.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Testimonials */}
-              <section>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Client Testimonials</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {service.testimonials.map((testimonial, index) => (
-                    <div key={index} className="bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-4">
-                      <div className="flex items-center gap-3 mb-3">
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          className="w-12 h-12 rounded-full object-cover"
-                        />
-                        <div>
-                          <div className="font-medium text-black dark:text-white">{testimonial.name}</div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400">
-                            {testimonial.role} at {testimonial.company}
-                          </div>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 dark:text-gray-300 italic">{testimonial.content}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Pricing */}
-              <section>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Service Packages</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Available Packages</h3>
                 <div className="grid md:grid-cols-3 gap-6">
-                  {service.packages.map((pkg, index) => (
+                  {service.packages.map((pkg) => (
                     <div
-                      key={index}
+                      key={pkg.id}
                       className={`relative bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-6 ${
                         pkg.isPopular ? 'ring-2 ring-blue-500' : ''
                       }`}
@@ -146,35 +96,45 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
                         </div>
                       )}
                       <h4 className="text-lg font-semibold text-black dark:text-white mb-2">{pkg.name}</h4>
-                      <div className="text-2xl font-bold text-black dark:text-white mb-4">{pkg.price}</div>
-                      <ul className="space-y-2 mb-6">
-                        {pkg.features.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-                            <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="text-2xl font-bold text-black dark:text-white mb-2">
+                        ${pkg.price.toLocaleString()}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                        Timeline: {pkg.timeline}
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">{pkg.description}</p>
+                      
+                      <div className="mb-4">
+                        <h5 className="font-medium text-black dark:text-white mb-2">Features:</h5>
+                        <ul className="space-y-2">
+                          {pkg.features.map((feature, index) => (
+                            <li key={index} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                              <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {pkg.addons.length > 0 && (
+                        <div className="mb-4">
+                          <h5 className="font-medium text-black dark:text-white mb-2">Available Add-ons:</h5>
+                          <ul className="space-y-2">
+                            {pkg.addons.map((addon) => (
+                              <li key={addon.id} className="text-sm">
+                                <div className="font-medium text-gray-700 dark:text-gray-200">
+                                  {addon.name} - ${addon.price.toLocaleString()}
+                                </div>
+                                <p className="text-gray-600 dark:text-gray-400">{addon.description}</p>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
                       <button className="w-full py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-600 text-white transition-colors">
                         Get Started
                       </button>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Tools */}
-              <section>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Tools & Technologies</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {service.tools.map((tool, index) => (
-                    <div
-                      key={index}
-                      className="group bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-zinc-700/50 transition-colors"
-                    >
-                      <img src={tool.icon} alt={tool.name} className="w-8 h-8 mb-2" />
-                      <h4 className="font-medium text-black dark:text-white mb-1">{tool.name}</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{tool.description}</p>
                     </div>
                   ))}
                 </div>

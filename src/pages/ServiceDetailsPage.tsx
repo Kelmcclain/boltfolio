@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getServicePackage } from '../data/services';
+import { getServicePackage, services } from '../data/services';
 import { ServiceBreadcrumb } from '../components/service-details/ServiceBreadcrumb';
 import { PackageDetails } from '../components/service-details/PackageDetails';
 import { ProjectForm } from '../components/service-details/ProjectForm';
@@ -13,9 +13,10 @@ function ServiceDetailsPage() {
   const [showForm, setShowForm] = useState(false);
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
 
+  const service = services.find(s => s.id === serviceId);
   const packageDetails = serviceId && packageId ? getServicePackage(serviceId, packageId) : null;
 
-  if (!packageDetails) {
+  if (!packageDetails || !service) {
     return (
       <div className="min-h-screen bg-white dark:bg-black py-20">
         <div className="container mx-auto px-4 text-center text-black dark:text-white">
@@ -30,6 +31,12 @@ function ServiceDetailsPage() {
       </div>
     );
   }
+
+  const breadcrumbPath = [
+    { name: 'Services', path: '/services' },
+    { name: service.title, path: `/services/${serviceId}` },
+    { name: packageDetails.name, path: `/services/${serviceId}/packages/${packageId}/details` }
+  ];
 
   const calculateTotalPrice = () => {
     const basePrice = packageDetails.price;
@@ -51,9 +58,7 @@ function ServiceDetailsPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-black py-20">
       <div className="container mx-auto px-4">
-        <ServiceBreadcrumb 
-          path={['Services', 'Web Development', packageDetails.name]} 
-        />
+        <ServiceBreadcrumb path={breadcrumbPath} />
 
         {!showForm ? (
           <motion.div
