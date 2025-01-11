@@ -8,7 +8,6 @@ export const engineeringProjects = [
     tags: ['React', 'Node.js', 'MongoDB'],
     links: {
       live: 'https://flashfocusstudios.org/',
-      // github: 'https://github.com/example/project'
     }
   },
   {
@@ -17,22 +16,22 @@ export const engineeringProjects = [
     description: 'A beautiful and intuitive task management application',
     image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=1000',
     category: 'Mobile App',
-    tags: ['React Native', 'Firebase'],
+    tags: ['React', 'Tailwind', 'Firebase'],
     links: {
       live: 'https://kelmcclain.github.io/taskflow/',
-      // github: 'https://github.com/example/project'
+      github: 'https://github.com/kelmcclain/taskflow'
     }
   },
   {
     id: 'e3',
-    title: 'Portfolio Website',
-    description: 'A modern portfolio website with dark mode support',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    title: 'Le Traqueur | Task Tracking App',
+    description: 'A task tracking application with a focus on simplicity and ease of use',
+    image: 'https://firebasestorage.googleapis.com/v0/b/peak-suprstate-384109.appspot.com/o/public%2Flt1.jpeg?alt=media&token=9af95724-a6b9-48ab-adff-6224f12800a7',
     category: 'Web Development',
-    tags: ['React', 'Tailwind'],
+    tags: ['React', 'Tailwind', 'Firebase'],
     links: {
-      // live: 'https://example.com',
-      // github: 'https://github.com/example/project'
+      live: 'https://kelmcclain.github.io/letraqueur/',
+      github: 'https://github.com/kelmcclain/letraqueur'
     }
   },
 ];
